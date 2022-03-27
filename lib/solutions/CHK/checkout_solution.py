@@ -205,10 +205,12 @@ def compute_price(list_items, price_dict):
                                             free_val = 0
                                         else:
                                             remaining_offer_multiple = sk_count_track // sk_offer_qty
-                                            remaining_sk_price = sk_count_track * sk_price
-                                            remaining_disc_price = remaining_offer_multiple * sk_offer_price
+                                            if remaining_offer_multiple > 0:
+                                                print(remaining_offer_multiple)
+                                                remaining_sk_price = sk_count_track * sk_price
+                                                remaining_disc_price = remaining_offer_multiple * sk_offer_price
+                                                free_val += remaining_sk_price - remaining_disc_price
 
-                                            free_val += remaining_sk_price - remaining_disc_price
                                             free_val = free_val - sk_offer_savings 
 
                 total_val += qty_available * price
@@ -229,6 +231,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 

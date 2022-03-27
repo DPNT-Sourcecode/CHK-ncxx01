@@ -52,7 +52,10 @@ class TestHello():
         """Test checkout for buy 2 x get 1 y free, and y offers"""
         sku_list = ["A", "A", "E", "E", "B", "B", "B"]
         # checking the value actually matches (not just what the function computes)
-        assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
+        # assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
+
+        assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
+
 
 """
 Some requests have failed (2/40). Here are some of them:
