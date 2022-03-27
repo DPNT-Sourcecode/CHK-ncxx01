@@ -125,16 +125,14 @@ def compute_price(list_items, price_dict):
 
                 qty_available = qty
                 for offer_qty in qty_list_ordered:
-                    # if qty_available < offer_qty:
-                    #     print("yes")
-                    #     total_val += qty_available * price
-                    # else:
+
                     if qty_available >= offer_qty:
+
                         eff_offer = get_offer_based_on_quantity(offers, offer_qty)
                         offer_multiple = qty_available // offer_qty
                         total_val += offer_multiple * eff_offer["deal_price"]
 
-                        print(eff_offer["deal_price"], offer_qty)
+                        # print(eff_offer["deal_price"], offer_qty)
                         
                         offer_remainder = qty_available % offer_qty
                         qty_available = offer_remainder
@@ -156,3 +154,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
