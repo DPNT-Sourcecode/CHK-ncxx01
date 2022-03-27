@@ -200,6 +200,8 @@ def compute_price(list_items, price_dict):
                                         print(sk_offer_savings)
                                         if sk_offer_savings >= free_val:
                                             free_val = 0
+                                        else:
+                                            free_val = free_val - sk_offer_savings
                                         # raise Exception
 
                 total_val += qty_available * price
