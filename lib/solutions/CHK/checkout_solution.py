@@ -1,3 +1,4 @@
+import collections
 """
 Our price table and offers: 
 +------+-------+------------------------+
@@ -101,9 +102,8 @@ def compute_price(list_items, price_dict):
             list_unordered = effective_offer_list(qty, offers)
 
             print(list_unordered)
+            # raise Exception
 
-
-            raise Exception
             if not list_unordered:
                 total_val += qty * price
             else:
@@ -145,4 +145,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
