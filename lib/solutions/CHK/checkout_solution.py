@@ -70,7 +70,7 @@ def effective_offer_list(actual_qty, offer_list):
     ret_list = []
     for offer in offer_list:
         if offer["quantity"] <= actual_qty:
-            ret_list.append(qty)
+            ret_list.append(offer)
     return ret_list
 
 def compute_price(list_items, price_dict):
@@ -98,9 +98,12 @@ def compute_price(list_items, price_dict):
             # offer_qty_list = []
             # for offer in offers:
             #     offer_qty_list.append(offer["quantity"])
-            list_unordered = effective_offer_list(qty, offer_qty_list)
+            list_unordered = effective_offer_list(qty, offers)
 
             print(list_unordered)
+
+
+            raise Exception
             if not list_unordered:
                 total_val += qty * price
             else:
@@ -142,3 +145,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
