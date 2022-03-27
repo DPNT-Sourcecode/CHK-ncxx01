@@ -1,13 +1,15 @@
 """
 Our price table and offers: 
-+------+-------+----------------+
-| Item | Price | Special offers |
-+------+-------+----------------+
-| A    | 50    | 3A for 130     |
-| B    | 30    | 2B for 45      |
-| C    | 20    |                |
-| D    | 15    |                |
-+------+-------+----------------+
++------+-------+------------------------+
+| Item | Price | Special offers         |
++------+-------+------------------------+
+| A    | 50    | 3A for 130, 5A for 200 |
+| B    | 30    | 2B for 45              |
+| C    | 20    |                        |
+| D    | 15    |                        |
+| E    | 40    | 2E get one B free      |
++------+-------+------------------------+
+
 """
 
 PRICING_TABLE = {
@@ -20,13 +22,16 @@ PRICING_TABLE = {
         },
     "B": {
             "price": 30, 
-            "special_offers": {
-                "quantity": 2,
-                "deal_price": 45
-            }
+            "special_offers": [
+                {
+                    "quantity": 2,
+                    "deal_price": 45
+                }
+            ]
         },
     "C": {"price": 20},
-    "D": {"price": 15}
+    "D": {"price": 15},
+    "E": {"price": 15},
 }
 
 def compute_price(list_items, price_dict):
@@ -75,4 +80,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
