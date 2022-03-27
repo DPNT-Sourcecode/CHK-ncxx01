@@ -174,7 +174,6 @@ def compute_price(list_items, price_dict):
                                     # non discounted price
                                     total_sk_price = sk_price * sk_count
 
-                                    # if not sk_offers:
                                     sk_count_track = sk_count
                                     for i in range(offer_multiple):
                                         if sk_count_track >= sk_disc_count:
@@ -186,26 +185,16 @@ def compute_price(list_items, price_dict):
                                         # will make it generic later, 
                                         # or place appropriate constraints
                                         sk_offer = sk_offers[0]
-                                        # print(sk_offer)
                                         sk_offer_qty = sk_offer["quantity"]
-                                        # print(sk_offer_qty)
                                         sk_offer_price = sk_offer["deal_price"]
-                                        # print(sk_offer_price)
                                         sk_offer_multiple = sk_count // sk_offer_qty
-                                        # print(sk_offer_multiple)
                                         sk_offer_remainder = sk_count % sk_offer_qty
-                                        # print(sk_offer_remainder)
 
                                         eff_sk_price = (sk_offer_multiple * sk_offer_price) + \
                                             (sk_offer_remainder * sk_price)
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
 
-                                        print(eff_sk_price)
-                                        print(sk_offer_savings)
-                                        print(free_val)
-                                        # print(total_sk_price)
-                                        # print(sk)
                                         if sk_offer_savings > free_val:
                                             free_val = 0
                                         else:
@@ -236,9 +225,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
-
-
-
