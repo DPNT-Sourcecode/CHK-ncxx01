@@ -68,7 +68,7 @@ def check_offer_eligibility(actual_qty, qty_list):
     :rtype: Boolean
     """
     for qty in qty_list:
-        if qty < actual_qty:
+        if qty <= actual_qty:
             return True
     return False
 
@@ -105,7 +105,7 @@ def compute_price(list_items, price_dict):
                 # descending order of offer quantity
                 qty_list_ordered = offer_qty_list[::-1]
 
-                # for offer_qty in qty_list_ordered:
+                for offer_qty in qty_list_ordered:
 
 
 
