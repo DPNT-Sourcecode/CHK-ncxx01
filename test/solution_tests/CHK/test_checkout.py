@@ -9,6 +9,7 @@ class TestHello():
 
     def test_invalid_item_list(self):
         """Return -1 if item not in price list table"""
+        # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("F, G, A") == -1
 
     def test_no_offer_checkout(self):
@@ -26,7 +27,9 @@ class TestHello():
     def test_offer_checkout_complex(self):
         """Total checkout value for items with special offers"""
         sku_list = ["A", "A", "A", "A", "A", "A"]
+        # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("".join(sku_list)) == 260
+
 
 
 
