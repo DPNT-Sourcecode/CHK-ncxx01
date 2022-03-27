@@ -198,7 +198,11 @@ def compute_price(list_items, price_dict):
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
 
-                                        print(eff_mix_price, eff_sk_price, sk_offer_savings, total_sk_price)
+                                        mix_offer_savings = total_sk_price - eff_mix_price
+
+                                        print(eff_mix_price, eff_sk_price, total_sk_price)
+                                        print(sk_offer_savings, mix_offer_savings)
+
                                         # print(eff_sk_price)
                                         # print(sk_offer_savings)
                                         # print(free_val)
