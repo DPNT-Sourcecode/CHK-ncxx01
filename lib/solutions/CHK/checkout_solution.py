@@ -58,6 +58,21 @@ PRICING_TABLE = {
         }
 }
 
+
+def check_offer_eligibility(actual_qty, qty_list):
+    """Check if any offers are eligible based on quantity
+
+    :param actual_qty: Integer
+    :param qty_list: List
+
+    :rtype: Boolean
+    """
+    ret_flag = False
+    for qty in qty_list:
+        
+
+    return ret_flag
+
 def compute_price(list_items, price_dict):
     """Compute price based on list of items and price table
 
@@ -90,6 +105,7 @@ def compute_price(list_items, price_dict):
             for offer_qty in qty_list_ordered:
 
 
+
             # offer_qty = offer["quantity"]
 
             # if qty < offer_qty:
@@ -115,6 +131,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
