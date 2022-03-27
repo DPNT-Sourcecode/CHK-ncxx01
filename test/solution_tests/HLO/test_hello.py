@@ -6,4 +6,6 @@ class TestHello():
 
     def test_hello_world(self):
         """Happy path test"""
-        assert hello_solution.hello("") == "Hello, World!"
+        friend = "John"
+        assert hello_solution.hello(friend) == f"Hello, {friend}!"
+
