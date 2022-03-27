@@ -1,11 +1,13 @@
-# from solutions.HLO import hello_solution
+from solutions.HLO import hello_solution
 
 
-# class TestHello():
-#     """Class to test sum_solution"""
+class TestHello():
+    """Class to test sum_solution"""
 
-#  def test_checkout_no_offer(self):
-#         """Happy path test"""
-#         assert hello_solution.hello(friend) == f"Hello, {friend}!"
+    def test_hello(self):
+        """Happy path test"""
+        friend = "John"
+        assert hello_solution.hello(friend) == f"Hello, {friend}!"
+
 
 
