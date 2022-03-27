@@ -37,6 +37,26 @@ def compute_price(list_items, price_dict):
 
     :rtype: Integer
     """
+    total_val = 0
+    for sku in set(list_items):
+        qty = list_items.count(sku)
+        price = price_dict[sku]["price"]
+
+        offer = price_dict[sku].get("special_offers")
+        if not offer:
+            total_val += qty * price
+        else:
+            offer_qty = offer["quantity"]
+
+            if qty < offer_qty:
+                total_val += qty * price
+            else:
+                offer_multiple = offer_qty // qty
+                offer_remainder = offer_qty % qty
+                total_val += offer_multiple * offer["deal_price"]
+                total_val += price * offer_remainder
+
+    return total_val
 
 
 # noinspection PyUnusedLocal
@@ -57,25 +77,7 @@ def checkout(skus):
             return -1
         else:
             items.append(stripped_item)
-    
-    total_val = 0
-    for sku in set(items):
-        qty = items.count(sku)
-        price = PRICING_TABLE[sku]["price"]
 
-        offer = PRICING_TABLE[sku].get("special_offers")
-        if not offer:
-            total_val += qty * price
-        else:
-            offer_qty = offer["quantity"]
+    return compute_price(items, PRICING_TABLE)
 
-            if qty < offer_qty:
-                total_val += qty * price
-            else:
-                offer_multiple = offer_qty // qty
-                offer_remainder = offer_qty % qty
-                total_val += offer_multiple * offer["deal_price"]
-                total_val += price * offer_remainder
-
-    return total_val
 
