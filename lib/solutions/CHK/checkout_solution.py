@@ -18,10 +18,12 @@ PRICING_TABLE = {
             "special_offers": [
                 {
                     "quantity": 3,
+                    "deal_type": "discount",
                     "deal_price": 130
                 },
                 {
                     "quantity": 5,
+                    "deal_type": "discount",
                     "deal_price": 200
                 }
             ]
@@ -31,6 +33,7 @@ PRICING_TABLE = {
             "special_offers": [
                 {
                     "quantity": 2,
+                    "deal_type": "discount",
                     "deal_price": 45
                 }
             ]
@@ -39,11 +42,18 @@ PRICING_TABLE = {
     "D": {"price": 15},
     "E": {
             "price": 40,
-            "special_offers": [
-                {
-                    "quantity": 2,
-                    "deal_price": 40
-                }
+            # "special_offers": [
+            #     {
+            #         "quantity": 2,
+            #         "deal_type": "mix",
+            #         "free_items": [
+            #             {
+            #                 "item": "B"
+            #                 "free_quantity": 1
+            #             }
+            #         ]
+            #         "deal_price": 40
+            #     }
             ]
         }
 }
