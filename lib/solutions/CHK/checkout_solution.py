@@ -87,6 +87,19 @@ def get_offer_based_on_quantity(offer_list, quantity):
             return offer
 
 
+def get_free_item_obj(free_items, obj):
+    """Fetch specific offer based on offer quantity
+
+    :param offer_list: List
+    :param quantity: Integer
+
+    :rtype: Dictionary
+    """
+    for offer in offer_list:
+        if offer["quantity"] == quantity:
+            return offer
+
+
 def compute_price(list_items, price_dict):
     """Compute price based on list of items and price table
 
@@ -150,10 +163,11 @@ def compute_price(list_items, price_dict):
 
                             if available_for_discount:
                                 for sk in available_for_discount:
-                                    print(sk)
+                                    
+                                    sk_price = PRICING_TABLE[sk]["price"]
+                                    sk_offer = PRICING_TABLE[sk]["special_offers"]
 
                             # print(available_for_discount)
-
                 
                 total_val += qty_available * price
     total_val = total_val - free_val
@@ -172,3 +186,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
