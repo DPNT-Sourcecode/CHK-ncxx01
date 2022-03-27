@@ -74,11 +74,15 @@ def compute_price(list_items, price_dict):
         qty = list_items.count(sku)
         price = price_dict[sku]["price"]
 
-        offer = price_dict[sku].get("special_offers")
-        if not offer:
+        offers = price_dict[sku].get("special_offers")
+        if not offers:
             total_val += qty * price
         else:
-            print("offer")
+            for offer in offers:
+                
+
+
+
             offer_qty = offer["quantity"]
 
             if qty < offer_qty:
@@ -104,3 +108,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
