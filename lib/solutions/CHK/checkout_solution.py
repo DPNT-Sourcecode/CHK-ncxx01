@@ -181,6 +181,9 @@ def compute_price(list_items, price_dict):
                                             free_val += sk_price * sk_disc_count
                                             sk_count_track = sk_count_track - 1
                                     print(free_val)
+                                    raise Exception
+                                    # if sk_offers:
+
 
                 
                 total_val += qty_available * price
@@ -200,3 +203,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
