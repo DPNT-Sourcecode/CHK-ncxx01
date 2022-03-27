@@ -127,6 +127,7 @@ def compute_price(list_items, price_dict):
                 for offer_qty in qty_list_ordered:
  
                     if qty_available < offer_qty:
+                        print("yes")
                         total_val += qty_available * price
                     else:
                         eff_offer = get_offer_based_on_quantity(offers, offer_qty)
@@ -153,6 +154,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
