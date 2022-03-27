@@ -173,6 +173,7 @@ def compute_price(list_items, price_dict):
                                     sk_disc_count = sk_item["free_quantity"]
                                     # non discounted price
                                     total_sk_price = sk_price * sk_count
+                                    print(total_sk_price)
 
                                     # if not sk_offers:
                                     sk_count_track = sk_count
@@ -183,13 +184,12 @@ def compute_price(list_items, price_dict):
                                     print(free_val)
 
                                     if sk_offers:
-                                        # hardcoding now as B only has 1 offer, will make it generic later
+                                        # hardcoding now as B only has 1 offer, 
+                                        # will make it generic later, 
+                                        # or place appropriate constraints
                                         sk_offer = sk_offers[0]
-
-
-
-
-                                    
+                                        sk_offer_qty = sk_offer["quantity"]
+                                        raise Exception
 
 
                 
