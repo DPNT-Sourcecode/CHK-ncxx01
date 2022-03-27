@@ -53,7 +53,6 @@ PRICING_TABLE = {
                             "free_quantity": 1
                         }
                     ]
-                    # "deal_price": 40
                 }
             ]
         }
