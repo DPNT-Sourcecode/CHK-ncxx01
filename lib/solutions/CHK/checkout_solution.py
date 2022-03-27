@@ -167,8 +167,10 @@ def compute_price(list_items, price_dict):
                                 for sk in available_for_discount:
                                     sk_item = get_free_item_obj(free_items, sk)
                                     sk_price = PRICING_TABLE[sk]["price"]
-                                    sk_offer = PRICING_TABLE[sk]["special_offers"]
+                                    sk_offers = PRICING_TABLE[sk]["special_offers"]
                                     sk_count = list_items.count(sk)
+
+                                    if sk_offers
 
                             # print(available_for_discount)
                 
@@ -189,6 +191,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
