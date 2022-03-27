@@ -15,10 +15,16 @@ Our price table and offers:
 PRICING_TABLE = {
     "A": {
             "price": 50, 
-            "special_offers": {
-                "quantity": 3,
-                "deal_price": 130
-            }
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_price": 130
+                },
+                {
+                    "quantity": 5,
+                    "deal_price": 200
+                }
+            ]
         },
     "B": {
             "price": 30, 
@@ -88,6 +94,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
