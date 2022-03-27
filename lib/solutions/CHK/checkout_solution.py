@@ -118,6 +118,7 @@ def compute_price(list_items, price_dict):
                     else:
                         offer_multiple = qty_available // offer_qty
                         print("offer multiple ", offer_multiple)
+                        print("deal price", offer["deal_price"])
                         total_val += offer_multiple * offer["deal_price"]
                         
                         offer_remainder = qty_available % offer_qty
@@ -140,6 +141,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
