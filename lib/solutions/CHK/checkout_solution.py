@@ -9,6 +9,7 @@ Our price table and offers:
 | C    | 20    |                        |
 | D    | 15    |                        |
 | E    | 40    | 2E get one B free      |
+| F    | 10    | 2F get one F free      |
 +------+-------+------------------------+
 
 """
@@ -50,6 +51,20 @@ PRICING_TABLE = {
                     "free_items": [
                         {
                             "item": "B",
+                            "free_quantity": 1
+                        }
+                    ]
+                }
+            ]
+        },
+    "F": {
+            "price": 40,
+            "special_offers": [
+                {
+                    "quantity": 2,
+                    "deal_type": "self",
+                    "free_items": [
+                        {
                             "free_quantity": 1
                         }
                     ]
