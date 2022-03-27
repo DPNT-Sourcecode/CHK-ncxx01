@@ -107,6 +107,7 @@ def compute_price(list_items, price_dict):
         price = price_dict[sku]["price"]
         # list of offers (if any)
         offers = price_dict[sku].get("special_offers")
+        
         if not offers:
             total_val += qty * price
         else:
@@ -114,9 +115,6 @@ def compute_price(list_items, price_dict):
             for offer in offers:
                 offer_qty_list.append(offer["quantity"])
             list_unordered = effective_offer_list(qty, offer_qty_list)
-
-            print(list_unordered)
-            # raise Exception
 
             if not list_unordered:
                 total_val += qty * price
@@ -127,22 +125,18 @@ def compute_price(list_items, price_dict):
 
                 qty_available = qty
                 for offer_qty in qty_list_ordered:
-
-                    print("available ", qty_available)
-                    print("offer qty ", offer_qty)
  
                     if qty_available < offer_qty:
                         total_val += qty_available * price
                     else:
+                        eff_offer = get_offer_based_on_quantity(offers, offer_qty)
                         offer_multiple = qty_available // offer_qty
-                        print("offer multiple ", offer_multiple)
-                        print("deal price", offer["deal_price"])
-                        total_val += offer_multiple * offer["deal_price"]
+                        total_val += offer_multiple * eff_offer["deal_price"]
+
+                        print(eff_offer["deal_price"], offer_qty)
                         
                         offer_remainder = qty_available % offer_qty
-                        qty_available = offer_remainder 
-                        print(total_val)  
-                        
+                        qty_available = offer_remainder             
 
     return total_val
 
