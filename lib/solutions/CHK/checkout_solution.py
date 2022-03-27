@@ -74,6 +74,20 @@ def effective_offer_list(actual_qty, offer_qty_list):
             ret_list.append(qty)
     return ret_list
 
+
+def get_offer_based_on_quantity(offer_list, quantity):
+    """Fetch specific offer based on offer quantity
+
+    :param offer_list: List
+    :param quantity: Integer
+
+    :rtype: Dictionary
+    """
+    for offer in offer_list:
+        if offer["quantity"] == quantity:
+            return offer
+
+
 def compute_price(list_items, price_dict):
     """Compute price based on list of items and price table
 
@@ -108,7 +122,7 @@ def compute_price(list_items, price_dict):
                 total_val += qty * price
             else:
                 list_unordered.sort()
-                descending order of offer quantity
+                # descending order of offer quantity
                 qty_list_ordered = list_unordered[::-1]
 
                 qty_available = qty
@@ -145,6 +159,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
