@@ -39,6 +39,9 @@ def compute_price(list_items, price_dict):
     """
     total_val = 0
     for sku in set(list_items):
+        if sku not in price_dict.keys():
+            return -1
+
         qty = list_items.count(sku)
         price = price_dict[sku]["price"]
 
@@ -68,16 +71,6 @@ def checkout(skus):
 
     :rtype: Int
     """
-    effective_skus = skus.strip()
-    items = []
-    for item in separated_items:
-        # stripped_item = item.strip()
-        if item not in PRICING_TABLE.keys():
-            return -1
-        else:
-            items.append(stripped_item)
-
-    return compute_price(items, PRICING_TABLE)
-
-
-
+    return compute_price(
+        [char for char in skus.strip()], 
+        PRICING_TABLE)

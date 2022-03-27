@@ -22,10 +22,3 @@ class TestHello():
         sku_list = ["C", "B", "B"]
         assert checkout_solution.checkout(",".join(sku_list)) == \
             checkout_solution.compute_price(sku_list, PRICES)
-
-
-
-
-
-
-
