@@ -186,17 +186,22 @@ def compute_price(list_items, price_dict):
                                         # will make it generic later, 
                                         # or place appropriate constraints
                                         sk_offer = sk_offers[0]
+                                        print(sk_offer)
                                         sk_offer_qty = sk_offer["quantity"]
+                                        print(sk_offer_qty)
                                         sk_offer_price = sk_offer["deal_price"]
+                                        print(sk_offer_price)
                                         sk_offer_multiple = sk_count // sk_offer_qty
+                                        print(sk_offer_multiple)
                                         sk_offer_remainder = sk_count % sk_offer_qty
+                                        print(sk_offer_remainder)
 
                                         eff_sk_price = (sk_offer_multiple * sk_offer_price) + \
                                             (sk_offer_remainder * sk_price)
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
 
-                                        # print(eff_sk_price)
+                                        print(eff_sk_price)
                                         # print(sk_offer_savings)
                                         # print(free_val)
                                         # print(total_sk_price)
@@ -231,6 +236,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
