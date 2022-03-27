@@ -29,6 +29,15 @@ PRICING_TABLE = {
     "D": {"price": 15}
 }
 
+def compute_price(list_items, price_dict):
+    """Compute price based on list of items and price table
+
+    :param list_items: List
+    :param price_dict: Dictionary
+
+    :rtype: Integer
+    """
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -69,3 +78,4 @@ def checkout(skus):
                 total_val += price * offer_remainder
 
     return total_val
+
