@@ -49,11 +49,11 @@ PRICING_TABLE = {
                     "deal_type": "mix",
                     "free_items": [
                         {
-                            "item": "B"
+                            "item": "B",
                             "free_quantity": 1
                         }
                     ]
-                    "deal_price": 40
+                    # "deal_price": 40
                 }
             ]
         }
@@ -141,6 +141,12 @@ def compute_price(list_items, price_dict):
                         elif eff_offer["deal_type"] == "mix":
                             free_items = eff_offer["free_items"]
                             free_skus = [item["item"] for item in free_items]
+
+                            available_for_discount = list(set_items.intersection(set(free_skus)))
+
+                            print(available_for_discount)
+
+                            raise Exception
                             
                             # offer_multiple = qty_available // offer_qty
 
@@ -166,6 +172,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
