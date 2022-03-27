@@ -43,19 +43,19 @@ PRICING_TABLE = {
     "D": {"price": 15},
     "E": {
             "price": 40,
-            # "special_offers": [
-            #     {
-            #         "quantity": 2,
-            #         "deal_type": "mix",
-            #         "free_items": [
-            #             {
-            #                 "item": "B"
-            #                 "free_quantity": 1
-            #             }
-            #         ]
-            #         "deal_price": 40
-            #     }
-            # ]
+            "special_offers": [
+                {
+                    "quantity": 2,
+                    "deal_type": "mix",
+                    "free_items": [
+                        {
+                            "item": "B"
+                            "free_quantity": 1
+                        }
+                    ]
+                    "deal_price": 40
+                }
+            ]
         }
 }
 
@@ -133,13 +133,16 @@ def compute_price(list_items, price_dict):
                                 
                             offer_multiple = qty_available // offer_qty
                             total_val += offer_multiple * eff_offer["deal_price"]
-
-                            # print(eff_offer["deal_price"], offer_qty)
                             
                             offer_remainder = qty_available % offer_qty
                             qty_available = offer_remainder
                         
-                        # elif eff_offer["deal_type"] == "mix":
+                        elif eff_offer["deal_type"] == "mix":
+                            offer_multiple = qty_available // offer_qty
+
+
+
+
                 
                 total_val += qty_available * price
 
@@ -158,4 +161,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
