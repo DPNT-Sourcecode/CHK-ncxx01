@@ -48,6 +48,12 @@ class TestHello():
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("".join(sku_list)) == 210
 
+    def test_mix_and_discount_offer_checkout(self):
+        """Test checkout for buy 2 x get 1 y free, and y offers"""
+        sku_list = ["A", "A", "E", "E", "B", "B", "B"]
+        # checking the value actually matches (not just what the function computes)
+        assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
+
 """
 Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470

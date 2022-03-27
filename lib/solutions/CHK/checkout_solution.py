@@ -198,6 +198,8 @@ def compute_price(list_items, price_dict):
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
                                         print(sk_offer_savings)
+                                        print(free_val)
+                                        print(total_sk_price)
                                         if sk_offer_savings >= free_val:
                                             free_val = 0
                                         else:
