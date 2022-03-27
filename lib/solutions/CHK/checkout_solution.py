@@ -40,18 +40,17 @@ def checkout(skus):
     :rtype: Int
     """
     separated_items = skus.split(",")
-    item_qty = {}
+    items = []
     for item in separated_items:
+        # handling non uniform separation via commas (hence, the strip)
         stripped_item = item.strip()
         if stripped_item not in PRICING_TABLE.keys():
             return -1
         else:
-            effective_item_list.
+            items.append(stripped_item)
     
+    total_val = 0
 
 
 
-    # effective_sku_list = [s.strip() for s in separated_items]
-
-
-    return 0
+    return total_val
