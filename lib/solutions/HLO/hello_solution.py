@@ -9,6 +9,7 @@ def hello(friend_name):
 
     :rtype: String
     """
-    return "Hello, world!"
+    return "Hello, World!"
+
 
 
