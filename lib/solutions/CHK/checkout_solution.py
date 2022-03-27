@@ -170,13 +170,15 @@ def compute_price(list_items, price_dict):
                                     sk_offers = PRICING_TABLE[sk]["special_offers"]
                                     sk_count = list_items.count(sk)
 
-                                    if not sk_offers:
-                                        # eff_count = 
-                                        if sk_count >= offer_multiple:
-                                            for i in range(offer_multiple):
-                                                
-                                    else:
-                                        pass
+                                    sk_disc_count = sk_item["free_quantity"]
+
+                                    # if not sk_offers:
+                                    #     # eff_count = 
+                                    #     if sk_count >= offer_multiple:
+                                    #         for i in range(offer_multiple):
+
+                                    # else:
+                                    #     pass
 
 
 
@@ -199,5 +201,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
