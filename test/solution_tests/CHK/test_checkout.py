@@ -10,4 +10,3 @@ class TestHello():
         """Happy path test"""
         friend = "John"
         assert hello_solution.hello(friend) == f"Hello, {friend}!"
-
