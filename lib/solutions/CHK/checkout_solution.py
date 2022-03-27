@@ -71,9 +71,11 @@ def compute_price(list_items, price_dict):
         if sku not in price_dict.keys():
             return -1
 
+        # quantity in order
         qty = list_items.count(sku)
+        # standard price
         price = price_dict[sku]["price"]
-
+        # list of offers (if any)
         offers = price_dict[sku].get("special_offers")
         if not offers:
             total_val += qty * price
@@ -82,18 +84,21 @@ def compute_price(list_items, price_dict):
             for offer in offers:
                 offer_qty_list.append(offer["quantity"])
             offer_qty_list.sort()
-
+            # descending order of offer quantity
             qty_list_ordered = offer_qty_list[::-1]
 
-            offer_qty = offer["quantity"]
+            for offer_qty in qty_list_ordered:
 
-            if qty < offer_qty:
-                total_val += qty * price
-            else:
-                offer_multiple = qty // offer_qty
-                offer_remainder = qty % offer_qty
-                total_val += offer_multiple * offer["deal_price"]
-                total_val += price * offer_remainder
+
+            # offer_qty = offer["quantity"]
+
+            # if qty < offer_qty:
+            #     total_val += qty * price
+            # else:
+            #     offer_multiple = qty // offer_qty
+            #     offer_remainder = qty % offer_qty
+            #     total_val += offer_multiple * offer["deal_price"]
+            #     total_val += price * offer_remainder
 
     return total_val
 
@@ -110,5 +115,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
