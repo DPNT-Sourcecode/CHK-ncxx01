@@ -28,5 +28,10 @@ class TestHello():
         """Total checkout value for items with special offers type"""
         sku_list = ["A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"]
         # checking the value actually matches (not just what the function computes)
-        print(len(sku_list))
         assert checkout_solution.checkout("".join(sku_list)) == 580
+
+    def test_offer_checkout_not_enough_for_offer(self):
+        """Total checkout value for items with special offers type but not enough quantity for offer"""
+        sku_list = ["A", "A", "E"]
+        # checking the value actually matches (not just what the function computes)
+        assert checkout_solution.checkout("".join(sku_list)) == 140
