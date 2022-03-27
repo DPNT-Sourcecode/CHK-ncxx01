@@ -54,7 +54,7 @@ PRICING_TABLE = {
             #         ]
             #         "deal_price": 40
             #     }
-            ]
+            # ]
         }
 }
 
@@ -105,6 +105,9 @@ def compute_price(list_items, price_dict):
                 # descending order of offer quantity
                 qty_list_ordered = offer_qty_list[::-1]
 
+                # for offer_qty in qty_list_ordered:
+
+
 
                 # offer_qty = offer["quantity"]
 
@@ -131,9 +134,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
-
-
-
