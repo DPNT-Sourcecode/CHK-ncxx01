@@ -60,18 +60,18 @@ PRICING_TABLE = {
 }
 
 
-def effective_offer_list(actual_qty, offer_list):
+def effective_offer_list(actual_qty, offer_qty_list):
     """Return only the quantities that are applicable
 
     :param actual_qty: Integer
-    :param offer_list: List
+    :param offer_qty_list: List
 
     :rtype: List
     """
     ret_list = []
-    for offer in offer_list:
-        if offer["quantity"] <= actual_qty:
-            ret_list.append(offer)
+    for qty in offer_qty_list:
+        if qty <= actual_qty:
+            ret_list.append(qty)
     return ret_list
 
 def compute_price(list_items, price_dict):
@@ -96,25 +96,20 @@ def compute_price(list_items, price_dict):
         if not offers:
             total_val += qty * price
         else:
-            # offer_qty_list = []
-            # for offer in offers:
-            #     offer_qty_list.append(offer["quantity"])
-            list_unordered = effective_offer_list(qty, offers)
+            offer_qty_list = []
+            for offer in offers:
+                offer_qty_list.append(offer["quantity"])
+            list_unordered = effective_offer_list(qty, offer_qty_list)
 
-            # print(list_unordered)
+            print(list_unordered)
             # raise Exception
 
             if not list_unordered:
                 total_val += qty * price
             else:
-                
-                list_ordered = collections.OrderedDict(reversed(sorted(list_unordered.items())))
-                print(list_ordered)
-
-                raise Exception
-                # list_unordered.sort()
-                # descending order of offer quantity
-                # qty_list_ordered = list_unordered[::-1]
+                list_unordered.sort()
+                descending order of offer quantity
+                qty_list_ordered = list_unordered[::-1]
 
                 qty_available = qty
                 for offer_qty in qty_list_ordered:
@@ -150,6 +145,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
