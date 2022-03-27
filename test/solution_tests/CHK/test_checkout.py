@@ -36,4 +36,3 @@ class TestHello():
         # checking the value actually matches (not just what the function computes)
         print(len(sku_list))
         assert checkout_solution.checkout("".join(sku_list)) == 530
-
