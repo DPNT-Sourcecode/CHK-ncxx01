@@ -31,7 +31,15 @@ PRICING_TABLE = {
         },
     "C": {"price": 20},
     "D": {"price": 15},
-    "E": {"price": 15},
+    "E": {
+            "price": 40,
+            "special_offers": [
+                {
+                    "quantity": 2,
+                    "deal_price": 40
+                }
+            ]
+        }
 }
 
 def compute_price(list_items, price_dict):
@@ -80,5 +88,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
