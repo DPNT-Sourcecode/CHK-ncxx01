@@ -50,7 +50,14 @@ def checkout(skus):
             items.append(stripped_item)
     
     total_val = 0
+    for sku in set(items):
+        qty = items.count(sku)
+        price = PRICING_TABLE[sku]["price"]
 
+        offer = PRICING_TABLE[sku].get("special_offers")
+
+        if not offer:
+            total_val += qty * price
 
 
     return total_val
