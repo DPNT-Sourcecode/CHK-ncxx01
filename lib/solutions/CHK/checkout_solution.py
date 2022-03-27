@@ -55,9 +55,11 @@ def checkout(skus):
         price = PRICING_TABLE[sku]["price"]
 
         offer = PRICING_TABLE[sku].get("special_offers")
-
         if not offer:
             total_val += qty * price
+        else:
+            offer_qty = offer["quantity"]
+
 
 
     return total_val
