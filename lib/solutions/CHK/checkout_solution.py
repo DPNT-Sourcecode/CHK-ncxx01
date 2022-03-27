@@ -107,7 +107,10 @@ def compute_price(list_items, price_dict):
                 # descending order of offer quantity
                 qty_list_ordered = list_unordered[::-1]
 
+                qty_available = qty
                 for offer_qty in qty_list_ordered:
+                    offer_multiple = qty // qty_available
+                    continue
 
 
 
@@ -136,5 +139,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
