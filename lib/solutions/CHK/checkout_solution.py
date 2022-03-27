@@ -64,20 +64,20 @@ def compute_price(list_items, price_dict):
 def checkout(skus):
     """Get checkout value
 
-    :param skus: String (comma separated string of skus)
+    :param skus: String
 
     :rtype: Int
     """
-    separated_items = skus.split(",")
+    effective_skus = skus.strip()
     items = []
     for item in separated_items:
-        # handling non uniform separation via commas (hence, the strip)
-        stripped_item = item.strip()
-        if stripped_item not in PRICING_TABLE.keys():
+        # stripped_item = item.strip()
+        if item not in PRICING_TABLE.keys():
             return -1
         else:
             items.append(stripped_item)
 
     return compute_price(items, PRICING_TABLE)
+
 
 

@@ -14,7 +14,7 @@ class TestHello():
     def test_no_offer_checkout(self):
         """Total checkout value for items with no offers"""
         sku_list = ["C", "D", "D"]
-        assert checkout_solution.checkout(",".join(sku_list)) == \
+        assert checkout_solution.checkout("".join(sku_list)) == \
             checkout_solution.compute_price(sku_list, PRICES)
 
     def test_offer_checkout(self):
@@ -22,6 +22,7 @@ class TestHello():
         sku_list = ["C", "B", "B"]
         assert checkout_solution.checkout(",".join(sku_list)) == \
             checkout_solution.compute_price(sku_list, PRICES)
+
 
 
 
