@@ -97,6 +97,7 @@ def compute_price(list_items, price_dict):
     """
     total_val = 0
     set_items = set(list_items)
+    free_val = 0
     for sku in set_items:
         if sku not in price_dict.keys():
             return -1
@@ -148,17 +149,14 @@ def compute_price(list_items, price_dict):
                                 set_items.intersection(set(free_skus)))
 
                             if available_for_discount:
-                                
-
+                                for sk in available_for_discount:
+                                    print(sk)
 
                             # print(available_for_discount)
 
-
-                            
-
                 
                 total_val += qty_available * price
-
+    total_val = total_val - free_val
     return total_val
 
 
