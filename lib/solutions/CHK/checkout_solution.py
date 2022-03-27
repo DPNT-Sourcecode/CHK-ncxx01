@@ -95,11 +95,13 @@ def compute_price(list_items, price_dict):
         if not offers:
             total_val += qty * price
         else:
-            offer_qty_list = []
-            for offer in offers:
-                offer_qty_list.append(offer["quantity"])
+            # offer_qty_list = []
+            # for offer in offers:
+            #     offer_qty_list.append(offer["quantity"])
 
-            list_unordered = effective_offer_list(qty, offer_qty_list)
+            list_unordered = effective_offer_list(
+                qty, [offer["quantity"] for offer in offers])
+            print(list_unordered)
             if not list_unordered:
                 total_val += qty * price
             else:
@@ -139,6 +141,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
