@@ -189,16 +189,19 @@ def compute_price(list_items, price_dict):
                                         # or place appropriate constraints
                                         sk_offer = sk_offers[0]
                                         sk_offer_qty = sk_offer["quantity"]
-                                        sk_offer_price = sk_offer["price"]
+                                        sk_offer_price = sk_offer["deal_price"]
                                         sk_offer_multiple = sk_count // sk_offer_qty
                                         sk_offer_remainder = sk_count % sk_offer_qty
 
                                         eff_sk_price = (sk_offer_multiple * sk_offer_price) + \
                                             (sk_offer_remainder * sk_price)
+                                        
+                                        sk_offer_savings = total_sk_price - eff_sk_price
+                                        print(sk_offer_savings)
+                                        if sk_offer_savings >= free_val:
+                                            free_val = 0
                                         # raise Exception
 
-
-                
                 total_val += qty_available * price
     total_val = total_val - free_val
     return total_val
@@ -216,6 +219,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
