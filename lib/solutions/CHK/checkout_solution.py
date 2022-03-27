@@ -170,7 +170,10 @@ def compute_price(list_items, price_dict):
                                     sk_offers = PRICING_TABLE[sk]["special_offers"]
                                     sk_count = list_items.count(sk)
 
-                                    if sk_offers
+                                    if not sk_offers:
+                                        if sk_count >= offer_multiple:
+                                            
+
 
                             # print(available_for_discount)
                 
