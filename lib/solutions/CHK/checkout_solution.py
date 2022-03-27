@@ -11,8 +11,20 @@ Our price table and offers:
 """
 
 PRICING_TABLE = {
-    "A": {"price": 50, "special_offers": ""},
-    "B": {"price": 30, "special_offers": ""},
+    "A": {
+            "price": 50, 
+            "special_offers": {
+                "quantity": 3,
+                "deal_price": 130
+            }
+        },
+    "B": {
+            "price": 30, 
+            "special_offers": {
+                "quantity": 2,
+                "deal_price": 45
+            }
+        },
     "C": {"price": 20},
     "D": {"price": 15}
 }
@@ -21,5 +33,13 @@ PRICING_TABLE = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    raise NotImplementedError()
+    """Get checkout value
+
+    :param skus: String (comma separated string of skus)
+
+    :rtype: Int
+    """
+
+    # raise NotImplementedError()
+
 
