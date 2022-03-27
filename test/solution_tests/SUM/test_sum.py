@@ -1,15 +1,19 @@
+import unittest
+
 from solutions.SUM import sum_solution
 
 
-class TestSum():
+class TestSum(unittest.TestCase):
     """Class to test sum_solution"""
 
     def test_sum(self):
         """Happy path test"""
-        assert sum_solution.compute(1, 2) == 3
+        sol = sum_solution.compute(1, 2)
+        self.assertEqual(sol, 3)
 
-    # def test_sum(self):
-    #     """Happy path test"""
-    #     with self.assert_
+    # def test_check_bounds(self):
+    #     """Raise value error if integer passed in is out of limit"""
+    #     with self.assertRaises
     #     assert sum_solution.compute(1, 2) == 3
+
 
