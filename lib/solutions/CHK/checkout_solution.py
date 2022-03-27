@@ -97,7 +97,8 @@ def compute_price(list_items, price_dict):
     :rtype: Integer
     """
     total_val = 0
-    for sku in set(list_items):
+    set_items = set(list_items)
+    for sku in set_items:
         if sku not in price_dict.keys():
             return -1
 
@@ -165,6 +166,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
