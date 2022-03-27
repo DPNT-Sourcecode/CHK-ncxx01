@@ -47,3 +47,9 @@ class TestHello():
         sku_list = ["A", "A", "E", "E", "B", "B"]
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("".join(sku_list)) == 210
+
+"""
+Some requests have failed (2/40). Here are some of them:
+ - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470
+ - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 695
+"""
