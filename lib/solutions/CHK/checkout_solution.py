@@ -109,22 +109,20 @@ def compute_price(list_items, price_dict):
 
                 qty_available = qty
                 for offer_qty in qty_list_ordered:
-                    # offer_multiple = qty // qty_available
-                    # continue
 
+                    print("available ", qty_available)
+                    print("offer qty ", offer_qty)
+ 
                     if qty_available < offer_qty:
                         total_val += qty_available * price
                     else:
-                    # while qty_available >= offer_qty
                         offer_multiple = qty_available // offer_qty
                         total_val += offer_multiple * offer["deal_price"]
                         
                         offer_remainder = qty_available % offer_qty
-                        qty_available = offer_remainder   
+                        qty_available = offer_remainder 
+                        print(total_val)  
                         
-                        # total_val += price * offer_remainder
-
-                # offer_qty = offer["quantity"]
 
     return total_val
 

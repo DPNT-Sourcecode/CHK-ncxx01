@@ -32,8 +32,8 @@ class TestHello():
 
     def test_offer_checkout_complex(self):
         """Total checkout value for items with special offers type"""
-        sku_list = ["A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"]
+        sku_list = ["A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"]
         # checking the value actually matches (not just what the function computes)
         print(len(sku_list))
-        assert checkout_solution.checkout("".join(sku_list)) == 500
+        assert checkout_solution.checkout("".join(sku_list)) == 530
 
