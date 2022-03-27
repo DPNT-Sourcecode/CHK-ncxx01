@@ -193,15 +193,10 @@ def compute_price(list_items, price_dict):
 
                                         eff_sk_price = (sk_offer_multiple * sk_offer_price) + \
                                             (sk_offer_remainder * sk_price)
-
-                                        eff_mix_price = total_sk_price - free_val
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
 
-                                        mix_offer_savings = total_sk_price - eff_mix_price
-
                                         print(eff_mix_price, eff_sk_price, total_sk_price)
-                                        print(sk_offer_savings, mix_offer_savings)
 
                                         # print(eff_sk_price)
                                         # print(sk_offer_savings)
@@ -211,7 +206,7 @@ def compute_price(list_items, price_dict):
                                         if sk_offer_savings >= free_val:
                                             free_val = 0
                                         else:
-                                            
+                                            if 
                                             free_val = free_val - sk_offer_savings 
                                         # raise Exception
 
@@ -233,3 +228,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
