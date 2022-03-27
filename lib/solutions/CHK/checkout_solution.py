@@ -65,6 +65,7 @@ def checkout(skus):
             else:
                 offer_multiple = offer_qty // qty
                 offer_remainder = offer_qty % qty
-                # total_val += 
+                total_val += offer_multiple * offer["deal_price"]
+                total_val += price * offer_remainder
 
     return total_val
