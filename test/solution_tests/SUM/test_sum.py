@@ -13,5 +13,6 @@ class TestSum():
         try:
             sol = sum_solution.compute(-1, 2)
         except ValueError as e:
-            assert e == "Passed in value out of bounds"
+            assert str(e) == "Passed in value out of bounds"
+
 
