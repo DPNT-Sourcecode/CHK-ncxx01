@@ -144,14 +144,14 @@ def compute_price(list_items, price_dict):
                             available_for_discount = list(set_items.intersection(set(free_skus)))
 
                             print(available_for_discount)
+                            total_val += qty_available * price
+                            qty_available = 0
 
-                            raise Exception
+                            
+
+                            # raise Exception
                             
                             # offer_multiple = qty_available // offer_qty
-
-
-
-
 
                 
                 total_val += qty_available * price

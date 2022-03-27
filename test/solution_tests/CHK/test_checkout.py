@@ -40,4 +40,4 @@ class TestHello():
         """Test checkout for buy 2 x get 1 y free"""
         sku_list = ["A", "A", "E", "E"]
         # checking the value actually matches (not just what the function computes)
-        assert checkout_solution.checkout("".join(sku_list)) == 140
+        assert checkout_solution.checkout("".join(sku_list)) == 180
