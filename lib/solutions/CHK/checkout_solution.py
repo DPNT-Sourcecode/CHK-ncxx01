@@ -101,15 +101,20 @@ def compute_price(list_items, price_dict):
             #     offer_qty_list.append(offer["quantity"])
             list_unordered = effective_offer_list(qty, offers)
 
-            print(list_unordered)
+            # print(list_unordered)
             # raise Exception
 
             if not list_unordered:
                 total_val += qty * price
             else:
-                list_unordered.sort()
+                
+                list_ordered = collections.OrderedDict(reversed(sorted(list_unordered.items())))
+                print(list_ordered)
+
+                raise Exception
+                # list_unordered.sort()
                 # descending order of offer quantity
-                qty_list_ordered = list_unordered[::-1]
+                # qty_list_ordered = list_unordered[::-1]
 
                 qty_available = qty
                 for offer_qty in qty_list_ordered:
@@ -145,5 +150,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
