@@ -9,6 +9,7 @@ def compute(x, y):
     :rtype: Integer
     """
     if x > 100 or x < 0 or y > 100 or y < 0:
-        raise ValueError
+        raise ValueError("Passed in value out of bounds")
 
     return x + y
+
