@@ -174,19 +174,14 @@ def compute_price(list_items, price_dict):
                                     # non discounted price
                                     total_sk_price = sk_price * sk_count
 
-                                    if not sk_offers:
-                                        sk_count_track = sk_count
-                                        for i in range(offer_multiple):
-                                            if sk_count_track >= sk_disc_count:
-                                                free_val += sk_price * sk_disc_count
-                                                sk_count_track = sk_count_track - 1
-                                    else:
+                                    # if not sk_offers:
+                                    sk_count_track = sk_count
+                                    for i in range(offer_multiple):
+                                        if sk_count_track >= sk_disc_count:
+                                            free_val += sk_price * sk_disc_count
+                                            sk_count_track = sk_count_track - 1
+                                    print(free_val)
 
-                                        pass
-
-
-
-                            # print(available_for_discount)
                 
                 total_val += qty_available * price
     total_val = total_val - free_val
