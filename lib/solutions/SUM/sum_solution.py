@@ -12,4 +12,3 @@ def compute(x, y):
         raise ValueError
 
     return x + y
-
