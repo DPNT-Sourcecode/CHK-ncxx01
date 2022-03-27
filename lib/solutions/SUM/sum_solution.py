@@ -12,4 +12,3 @@ def compute(x, y):
         raise ValueError("Passed in value out of bounds")
 
     return x + y
-
