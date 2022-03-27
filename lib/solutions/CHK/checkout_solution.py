@@ -191,18 +191,24 @@ def compute_price(list_items, price_dict):
                                         sk_offer_multiple = sk_count // sk_offer_qty
                                         sk_offer_remainder = sk_count % sk_offer_qty
 
-                                        eff_sk_price = (sk_offer_multiple * sk_offer_price) + \
+                                        eff_sk_offer_price = (sk_offer_multiple * sk_offer_price) + \
                                             (sk_offer_remainder * sk_price)
+
+                                        eff_mix_offer_price = total_sk_price - free_val
                                         
                                         sk_offer_savings = total_sk_price - eff_sk_price
-                                        print(eff_sk_price)
-                                        print(sk_offer_savings)
-                                        print(free_val)
-                                        print(total_sk_price)
+
+                                        print(eff_mix_offer_price, eff_sk_offer_price, sk_offer_savings)
+                                        # print(eff_sk_price)
+                                        # print(sk_offer_savings)
+                                        # print(free_val)
+                                        # print(total_sk_price)
+                                        # print(sk)
                                         if sk_offer_savings >= free_val:
                                             free_val = 0
                                         else:
-                                            free_val = free_val - (sk_offer_savings)
+                                            
+                                            free_val = free_val - sk_offer_savings 
                                         # raise Exception
 
                 total_val += qty_available * price
@@ -223,6 +229,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
