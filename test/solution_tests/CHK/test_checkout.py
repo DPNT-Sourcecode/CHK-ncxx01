@@ -25,8 +25,8 @@ class TestHello():
 
     def test_offer_checkout_complex(self):
         """Total checkout value for items with special offers"""
-        sku_list = ["A", "A", "A"]
-        assert checkout_solution.checkout("".join(sku_list)) == 150
+        sku_list = ["A", "A", "A", "A"]
+        assert checkout_solution.checkout("".join(sku_list)) == 180
             # checkout_solution.compute_price(sku_list, PRICES)
 
 
@@ -35,4 +35,5 @@ class TestHello():
  - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 150
  - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R1_017"}, expected: 260, got: 150
  """
+
 
