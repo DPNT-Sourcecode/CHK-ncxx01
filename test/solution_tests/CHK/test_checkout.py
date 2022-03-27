@@ -36,8 +36,14 @@ class TestHello():
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("".join(sku_list)) == 140
 
+    def test_mix_no_offer_checkout(self):
+        """Test checkout for buy 2 x get 1 y free (but no y)"""
+        sku_list = ["A", "A", "E", "E"]
+        # checking the value actually matches (not just what the function computes)
+        assert checkout_solution.checkout("".join(sku_list)) == 180
+
     def test_mix_offer_checkout(self):
         """Test checkout for buy 2 x get 1 y free"""
-        sku_list = ["A", "A", "E", "E"]
+        sku_list = ["A", "A", "E", "E", "B"]
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("".join(sku_list)) == 180
