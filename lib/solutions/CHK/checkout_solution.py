@@ -58,7 +58,7 @@ PRICING_TABLE = {
             ]
         },
     "F": {
-            "price": 40,
+            "price": 10,
             "special_offers": [
                 {
                     "quantity": 2,
@@ -165,6 +165,9 @@ def compute_price(list_items, price_dict):
                             
                             offer_remainder = qty_available % offer_qty
                             qty_available = offer_remainder
+
+                        elif eff_offer["deal_type"] == "self":
+
                         
                         elif eff_offer["deal_type"] == "mix":
                             offer_multiple = qty_available // offer_qty
@@ -240,3 +243,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
