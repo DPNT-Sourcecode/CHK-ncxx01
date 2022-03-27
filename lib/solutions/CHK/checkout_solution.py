@@ -101,24 +101,20 @@ def compute_price(list_items, price_dict):
             if not check_offer_eligibility(qty, offer_qty_list):
                 total_val += qty * price
             else:
-                
+                offer_qty_list.sort()
+                # descending order of offer quantity
+                qty_list_ordered = offer_qty_list[::-1]
 
 
+                # offer_qty = offer["quantity"]
 
-            offer_qty_list.sort()
-            # descending order of offer quantity
-            qty_list_ordered = offer_qty_list[::-1]
-
-
-            # offer_qty = offer["quantity"]
-
-            # if qty < offer_qty:
-            #     total_val += qty * price
-            # else:
-            #     offer_multiple = qty // offer_qty
-            #     offer_remainder = qty % offer_qty
-            #     total_val += offer_multiple * offer["deal_price"]
-            #     total_val += price * offer_remainder
+                # if qty < offer_qty:
+                #     total_val += qty * price
+                # else:
+                #     offer_multiple = qty // offer_qty
+                #     offer_remainder = qty % offer_qty
+                #     total_val += offer_multiple * offer["deal_price"]
+                #     total_val += price * offer_remainder
 
     return total_val
 
@@ -135,6 +131,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
