@@ -39,7 +39,13 @@ def checkout(skus):
 
     :rtype: Int
     """
+    separated_items = skus.split(",")
+    for item in separated_items:
+        stripped_item = item.strip()
 
-    # raise NotImplementedError()
+    # effective_sku_list = [s.strip() for s in separated_items]
+
+
+    return 0
 
 
