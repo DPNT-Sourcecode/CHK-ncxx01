@@ -206,7 +206,7 @@ PRICING_TABLE = {
     "W": {"price": 20},
     "X": {"price": 90},
     "Y": {"price": 10},
-    "Z": {"price": 50},
+    "Z": {"price": 50}
 }
 
 
