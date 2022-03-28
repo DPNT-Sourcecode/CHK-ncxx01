@@ -262,6 +262,16 @@ ALL_THE_SAME = {
     }
 }
 
+def resolve_all_the_same(skus):
+    """Resolve sku string with buy any x
+    
+    :param skus: String
+
+    :rtype: String
+    """
+    for k in ALL_THE_SAME
+    
+
 def effective_offer_list(actual_qty, offer_qty_list):
     """Return only the quantities that are applicable
 
@@ -437,12 +447,6 @@ def checkout(skus):
     :rtype: Int
     """
     eff_skus = skus.strip()
-
-    for k in ALL_THE_SAME.keys():
-
-
-
-    raise Exception
 
     return compute_price(
         [char for char in eff_skus], 
