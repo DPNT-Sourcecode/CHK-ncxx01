@@ -320,6 +320,8 @@ def resolve_all_the_same(skus):
                     # print(count_track_skus)
                     count_track_skus.remove(min_sku)
                     print(count_track_skus)
+                    if count_track_skus.count(min_sku) == 0:
+                        del sk_dict[min_sku]
                 else:
                     # print(sk_dict)
                     del sk_dict[min_sku]
@@ -330,7 +332,7 @@ def resolve_all_the_same(skus):
             if repl_str:
                 eff_skus = f"{eff_skus}{repl_str}"
             print(eff_skus, "\n")
-            raise Exception
+            # raise Exception
 
     return eff_skus
 
@@ -511,8 +513,8 @@ def checkout(skus):
     :rtype: Int
     """
     eff_skus = resolve_all_the_same(skus.strip())
-    print("\n")
-    print(eff_skus)
+    # print("\n")
+    # print(eff_skus)
 
     return compute_price(
         [char for char in eff_skus], 
