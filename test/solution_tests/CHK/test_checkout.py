@@ -67,8 +67,10 @@ class TestHello():
         assert checkout_solution.checkout("UUU") == 120
         assert checkout_solution.checkout("UUUU") == 120
         assert checkout_solution.checkout("UUUUU") == 160
-        # assert checkout_solution.checkout("FFFFFF") == 40
-        # assert checkout_solution.checkout("FFFFFFF") == 50
+        assert checkout_solution.checkout("UUUUUU") == 200
+        assert checkout_solution.checkout("UUUUUUU") == 240
+        assert checkout_solution.checkout("UUUUUUUU") == 280
+        # assert checkout_solution.checkout("UUUUUUUUU") == 240
 
 
 """
@@ -76,3 +78,4 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470
  - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 695
 """
+
