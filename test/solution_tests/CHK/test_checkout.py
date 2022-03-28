@@ -80,5 +80,6 @@ class TestHello():
         """Test checkout for buy 3 x get 1 y free, and y offers"""
         assert checkout_solution.checkout("SNNNM") == 140
 
-        assert checkout_solution.checkout("SXYZNNNM") == 140
+        assert checkout_solution.checkout("SXYZNNNM") == 182
+
 

@@ -503,10 +503,13 @@ def checkout(skus):
     :rtype: Int
     """
     eff_skus = resolve_all_the_same(skus.strip())
+    print("\n")
+    print(eff_skus)
 
     return compute_price(
-        [char for char in skus.strip()], 
+        [char for char in eff_skus], 
         PRICING_TABLE)
+
 
 
 
