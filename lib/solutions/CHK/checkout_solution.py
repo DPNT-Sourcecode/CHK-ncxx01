@@ -269,6 +269,7 @@ def resolve_all_the_same(skus):
 
     :rtype: String
     """
+    eff_skus = skus
     for k in ALL_THE_SAME.keys():
         qty_count = 0
 
@@ -282,6 +283,7 @@ def resolve_all_the_same(skus):
                 qty_count += 1
 
         if qty_count >= min_qty:
+            repl_str = ""
             max_sku =  max(sk_dict, key=sk_dict.get)
             min_sku =  min(sk_dict, key=sk_dict.get)
 
@@ -290,13 +292,20 @@ def resolve_all_the_same(skus):
             len_str = len(ats_skus)
 
             offer_multiple = len_str // min_qty
+
+            for i in range(offer_multiple):
+                for j in range(min_qty):
+                    repl_str = f"{repl_str}{max_sku}"
+
+            print(repl_str)
+
             offer_remainder = len_str % min_qty
             print(min_sku, max_sku, ats_skus, min_qty, len_str)
 
             print(offer_multiple, offer_remainder)
             raise Exception
 
-    # raise Exception
+    raise eff_skus
 
     
 
@@ -479,6 +488,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
