@@ -88,4 +88,3 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["BBB"],"id":"CHK_R4_103"}, expected: 75, got: null
  - {"method":"checkout","params":["BBBB"],"id":"CHK_R4_104"}, expected: 90, got: null
  """
-
