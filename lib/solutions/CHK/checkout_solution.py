@@ -167,9 +167,11 @@ def compute_price(list_items, price_dict):
                             qty_available = offer_remainder
 
                         elif eff_offer["deal_type"] == "self":
-                            print(qty_available, offer_qty)
+                            total_val += qty_available * price
+                            print(qty_available, offer_qty, total_val)
                             if qty_available > offer_qty:
                                 raise Exception
+                            # else:
                         
                         elif eff_offer["deal_type"] == "mix":
                             offer_multiple = qty_available // offer_qty
@@ -245,5 +247,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
