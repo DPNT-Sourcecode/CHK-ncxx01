@@ -280,9 +280,14 @@ def resolve_all_the_same(skus):
                 qty_count += 1
 
         if qty_count >= ALL_THE_SAME[k]["min_quantity"]:
+            max_sku =  max(sk_dict, key=sk_dict.get)
+            min_sku =  min(sk_dict, key=sk_dict.get)
 
+            ats_skus = "".join([sk for sk in sk_dict.keys()])
 
-            # raise Exception
+            print(min_sku, max_sku, ats_skus)
+
+            raise Exception
 
     # raise Exception
 
@@ -467,4 +472,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
