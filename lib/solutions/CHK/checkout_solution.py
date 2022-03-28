@@ -321,8 +321,8 @@ def resolve_all_the_same(skus):
             print(offer_multiple, offer_remainder, repl_str)
             if repl_str:
                 eff_skus = f"{eff_skus}{repl_str}"
-            print(eff_skus)
-            # raise Exception
+            print(eff_skus, "\n")
+            raise Exception
 
     return eff_skus
 
@@ -509,6 +509,7 @@ def checkout(skus):
     return compute_price(
         [char for char in eff_skus], 
         PRICING_TABLE)
+
 
 
 

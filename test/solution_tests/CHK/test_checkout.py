@@ -78,8 +78,8 @@ class TestHello():
 
     def test_offer_all_the_same(self):
         """Test checkout for buy 3 x get 1 y free, and y offers"""
-        assert checkout_solution.checkout("SNNNM") == 140
+        # assert checkout_solution.checkout("SXYZNNNM") == 182
+        assert checkout_solution.checkout("SXYYZ") == 182
 
-        assert checkout_solution.checkout("SXYZNNNM") == 182
 
 
