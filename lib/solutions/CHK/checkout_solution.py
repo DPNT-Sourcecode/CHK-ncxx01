@@ -254,10 +254,11 @@ PRICING_TABLE = {
         }
 }
 
-ALL_THE_SAME {
+ALL_THE_SAME = {
     ("S", "T", "X", "Y", "Z"): {
         "min_quantity": 3,
-        "replacement": "X"
+        # highest value
+        "replacement": "Z"
     }
 }
 
@@ -436,6 +437,12 @@ def checkout(skus):
     :rtype: Int
     """
     eff_skus = skus.strip()
+
+    for k in ALL_THE_SAME.keys():
+
+
+
+    raise Exception
 
     return compute_price(
         [char for char in eff_skus], 
