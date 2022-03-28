@@ -289,8 +289,11 @@ def resolve_all_the_same(skus):
 
             len_str = len(ats_skus)
 
+            offer_multiple = len_str // min_qty
+            offer_remainder = len_str % min_qty
             print(min_sku, max_sku, ats_skus, min_qty, len_str)
 
+            print(offer_multiple, offer_remainder)
             raise Exception
 
     # raise Exception
@@ -476,6 +479,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
