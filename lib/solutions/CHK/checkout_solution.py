@@ -110,12 +110,12 @@ PRICING_TABLE = {
     "I": {"price": 35},
     "J": {"price": 60},
     "K": {
-            "price": 80,
+            "price": 70,
             "special_offers": [
                 {
                     "quantity": 2,
                     "deal_type": "discount",
-                    "deal_price": 150
+                    "deal_price": 120
                 }
             ]
         }, 
@@ -173,7 +173,7 @@ PRICING_TABLE = {
             ]
         },
     "S": {
-            "price": 30,
+            "price": 20,
             "special_offers": [
                 {
                     "quantity": 3,
@@ -223,7 +223,7 @@ PRICING_TABLE = {
         },
     "W": {"price": 20},
     "X": {
-            "price": 90,
+            "price": 17,
             "special_offers": [
                 {
                     "quantity": 3,
@@ -233,7 +233,7 @@ PRICING_TABLE = {
             ]
         },
     "Y": {
-            "price": 10,
+            "price": 20,
             "special_offers": [
                 {
                     "quantity": 3,
@@ -242,7 +242,16 @@ PRICING_TABLE = {
                 }
             ]
         },
-    "Z": {"price": 50}
+    "Z": {
+            "price": 21,
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_type": "discount",
+                    "deal_price": 45
+                }
+            ]
+        }
 }
 
 
