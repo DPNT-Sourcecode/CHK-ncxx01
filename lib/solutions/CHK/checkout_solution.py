@@ -258,7 +258,7 @@ ALL_THE_SAME = {
     ("S", "T", "X", "Y", "Z"): {
         "min_quantity": 3,
         # highest value
-        "replacement": "Z"
+        # "replacement": "Z"
     }
 }
 
@@ -276,9 +276,11 @@ def resolve_all_the_same(skus):
 
         for sku in skus:
             if sku in k:
+                sk_dict[sku] = PRICING_TABLE[sku]["price"]
                 qty_count += 1
 
         if qty_count >= ALL_THE_SAME[k]["min_quantity"]:
+
 
             # raise Exception
 
@@ -465,3 +467,4 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
