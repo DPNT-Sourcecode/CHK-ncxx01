@@ -296,7 +296,7 @@ def resolve_all_the_same(skus):
                 eff_skus = eff_skus.replace(sk, "")
             
             print(ats_skus)
-            print(eff_skus)
+            print("eff ----", eff_skus, "----")
 
             len_str = len(ats_skus)
             max_sku =  max(sk_dict, key=sk_dict.get)
@@ -509,6 +509,7 @@ def checkout(skus):
     return compute_price(
         [char for char in eff_skus], 
         PRICING_TABLE)
+
 
 
 
