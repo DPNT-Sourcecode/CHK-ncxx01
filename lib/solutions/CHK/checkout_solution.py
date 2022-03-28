@@ -285,7 +285,7 @@ def resolve_all_the_same(skus):
 
         if qty_count >= min_qty:
             
-            print(eff_skus)
+            print("effsk", eff_skus)
             # for 
 
             repl_str = ""
@@ -299,9 +299,11 @@ def resolve_all_the_same(skus):
             print("eff ----", eff_skus, "----")
 
             len_str = len(ats_skus)
+            print(len_str)
             max_sku =  max(sk_dict, key=sk_dict.get)
 
             offer_multiple = len_str // min_qty
+            print(offer_multiple)
             for i in range(offer_multiple):
                 for j in range(min_qty):
                     repl_str = f"{repl_str}{max_sku}"
@@ -318,7 +320,7 @@ def resolve_all_the_same(skus):
                     del sk_dict[min_sku]
 
             print(min_sku, max_sku, ats_skus, min_qty, len_str)
-            print(offer_multiple, offer_remainder, repl_str)
+            # print(offer_multiple, offer_remainder, repl_str)
             if repl_str:
                 eff_skus = f"{eff_skus}{repl_str}"
             print(eff_skus, "\n")
@@ -509,6 +511,7 @@ def checkout(skus):
     return compute_price(
         [char for char in eff_skus], 
         PRICING_TABLE)
+
 
 
 
