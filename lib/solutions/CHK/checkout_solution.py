@@ -269,7 +269,17 @@ def resolve_all_the_same(skus):
 
     :rtype: String
     """
-    for k in ALL_THE_SAME
+    for k in ALL_THE_SAME.keys():
+        qty_count = 0
+        for sku in skus:
+            if sku in k:
+                qty_count += 1
+
+        if qty_count >= ALL_THE_SAME[k]["min_quantity"]:
+            raise Exception
+
+    # raise Exception
+
     
 
 def effective_offer_list(actual_qty, offer_qty_list):
@@ -448,6 +458,8 @@ def checkout(skus):
     """
     eff_skus = skus.strip()
 
+    
+
     return compute_price(
-        [char for char in eff_skus], 
+        [char for char in skus.strip()], 
         PRICING_TABLE)
