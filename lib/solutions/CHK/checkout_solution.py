@@ -306,7 +306,6 @@ def compute_price(list_items, price_dict):
                             total_val += qty_available * price
                             free_factor = eff_offer["free_items"][0]["free_quantity"]
                             discount = 0
-                            print(total_val, qty_available)
                             if qty_available > offer_qty:
                                 offer_multiple = qty_available // (offer_qty + free_factor)
                                 
@@ -390,6 +389,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
