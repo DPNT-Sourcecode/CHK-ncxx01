@@ -62,6 +62,14 @@ class TestHello():
         assert checkout_solution.checkout("FFFFFF") == 40
         assert checkout_solution.checkout("FFFFFFF") == 50
 
+    def test_self_discount_offer_checkout_more_qty(self):
+        """Test checkout for buy 3 get 1 free"""
+        assert checkout_solution.checkout("UUU") == 120
+        assert checkout_solution.checkout("UUUU") == 120
+        assert checkout_solution.checkout("UUUUU") == 160
+        # assert checkout_solution.checkout("FFFFFF") == 40
+        # assert checkout_solution.checkout("FFFFFFF") == 50
+
 
 """
 Some requests have failed (2/40). Here are some of them:

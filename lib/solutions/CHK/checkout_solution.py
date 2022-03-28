@@ -188,7 +188,21 @@ PRICING_TABLE = {
                 }
             ]
         },
-    "V": {"price": 15}, #revisit
+    "V": {
+            "price": 50,
+            "special_offers": [
+                {
+                    "quantity": 2,
+                    "deal_type": "discount",
+                    "deal_price": 90
+                },
+                {
+                    "quantity": 3,
+                    "deal_type": "discount",
+                    "deal_price": 130
+                }
+            ]
+        },
     "W": {"price": 20},
     "X": {"price": 90},
     "Y": {"price": 10},
@@ -376,6 +390,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
