@@ -175,15 +175,17 @@ def compute_price(list_items, price_dict):
                                 free_factor = eff_offer["free_items"][0]["free_quantity"]
                                 offer_remainder = qty_available % offer_qty
                                 for i in range(offer_multiple):
-                                    discount += free_factor * price
+                                    if free_factor <= qty_available:
+                                        discount += free_factor * price
+                                        qty_available = qty_available - 1
 
-                                print(offer_multiple)
-                                print(offer_remainder)
-                                print(free_factor)
+                                # print(offer_multiple)
+                                # print(offer_remainder)
+                                # print(free_factor)
+                                # print(discount)
                                 # print(qtyoffer_qty * offer_multiple)
 
-                                raise Exception
-                            # else:
+                            total_val = total_val - discount
                             qty_available = 0
                         
                         elif eff_offer["deal_type"] == "mix":
@@ -260,9 +262,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
-
-
-

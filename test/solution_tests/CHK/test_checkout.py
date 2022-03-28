@@ -57,7 +57,7 @@ class TestHello():
     def test_self_discount_offer_checkout(self):
         """Test checkout for buy 2 get 1 free"""
         assert checkout_solution.checkout("FFF") == 20
-    #     assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
+        assert checkout_solution.checkout("FFFF") == 30
 
 
 """
@@ -65,6 +65,3 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470
  - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 695
 """
-
-
-
