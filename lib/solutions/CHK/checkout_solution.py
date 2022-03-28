@@ -277,16 +277,16 @@ def resolve_all_the_same(skus):
         sk_dict = {}
 
         min_qty = ALL_THE_SAME[k]["min_quantity"]
-
+        len_candidate_str = ""
         for sku in skus:
             if sku in k:
                 sk_dict[sku] = PRICING_TABLE[sku]["price"]
+                len_candidate_str = f"{len_candidate_str}{sku}"
                 qty_count += 1
 
         if qty_count >= min_qty:
             
-            print("effsk", eff_skus)
-            # for 
+            print("lencr", len_candidate_str)
 
             repl_str = ""
             ats_skus = ""
@@ -298,7 +298,7 @@ def resolve_all_the_same(skus):
             print(ats_skus)
             print("eff ----", eff_skus, "----")
 
-            len_str = len(ats_skus)
+            len_str = len(len_candidate_str)
             print(len_str)
             max_sku =  max(sk_dict, key=sk_dict.get)
 
@@ -511,6 +511,7 @@ def checkout(skus):
     return compute_price(
         [char for char in eff_skus], 
         PRICING_TABLE)
+
 
 
 
