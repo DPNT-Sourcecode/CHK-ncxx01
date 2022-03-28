@@ -78,3 +78,9 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470
  - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 695
 """
+
+"""
+ - {"method":"checkout","params":["BB"],"id":"CHK_R4_102"}, expected: 45, got: null
+ - {"method":"checkout","params":["BBB"],"id":"CHK_R4_103"}, expected: 75, got: null
+ - {"method":"checkout","params":["BBBB"],"id":"CHK_R4_104"}, expected: 90, got: null
+ """
