@@ -91,8 +91,8 @@ PRICING_TABLE = {
                 }
             ]
         },
-    "D": {"price": 15},
-    "D": {"price": 15},
+    "G": {"price": 20},
+    "H": {"price": 15}, #revisit
     "I": {"price": 35},
     "J": {"price": 60},
     "K": {"price": 15}, #revisit
@@ -293,10 +293,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
-
-
-
-
