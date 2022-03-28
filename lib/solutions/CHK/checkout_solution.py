@@ -168,19 +168,19 @@ def compute_price(list_items, price_dict):
 
                         elif eff_offer["deal_type"] == "self":
                             total_val += qty_available * price
+                            free_factor = eff_offer["free_items"][0]["free_quantity"]
                             discount = 0
                             print(total_val, qty_available)
                             if qty_available > offer_qty:
-                                offer_multiple = qty_available // offer_qty
-                                free_factor = eff_offer["free_items"][0]["free_quantity"]
-                                offer_remainder = qty_available % offer_qty
-                                print(offer_remainder)
+                                offer_multiple = qty_available // (offer_qty + free_factor)
+                                # offer_remainder = qty_available % offer_qty
+                                # print(offer_remainder)
+                                
                                 for i in range(offer_multiple):
-                                    if free_factor <= offer_remainder:
-                                        discount += free_factor * price
+                                    # if free_factor <= offer_remainder:
+                                    discount += free_factor * price
                                         # print(discount)
-                                        offer_remainder = offer_remainder - 1
-                                    print(discount, qty_available)
+                                    # print(discount, qty_available)
 
                                 # print(offer_multiple)
                                 # print(offer_remainder)
@@ -265,5 +265,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
