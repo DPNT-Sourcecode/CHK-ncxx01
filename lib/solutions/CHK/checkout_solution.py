@@ -121,7 +121,21 @@ PRICING_TABLE = {
         }, 
     "L": {"price": 90},
     "M": {"price": 15},
-    "N": {"price": 15}, #revisit
+    "N": {
+            "price": 40,
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_type": "mix",
+                    "free_items": [
+                        {
+                            "item": "M",
+                            "free_quantity": 1
+                        }
+                    ]
+                }
+            ]
+        },
     "O": {"price": 10},
     "P": {"price": 15}, #revisit
     "Q": {"price": 15}, #revisit
@@ -316,4 +330,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
