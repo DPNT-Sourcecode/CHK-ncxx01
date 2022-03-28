@@ -53,7 +53,13 @@ class TestHello():
         sku_list = ["A", "A", "E", "E", "B", "B", "B"]
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
+        assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
 
+    def test_self_discount_offer_checkout(self):
+        """Test checkout for buy 2 x get 1 y free, and y offers"""
+        sku_list = ["A", "A", "E", "E", "B", "B", "B"]
+        # checking the value actually matches (not just what the function computes)
+        assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
         assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
 
 
