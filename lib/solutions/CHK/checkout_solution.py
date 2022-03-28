@@ -270,7 +270,7 @@ def resolve_all_the_same(skus):
     :rtype: String
     """
     eff_skus = skus
-    count_track_skus = skus
+    count_track_skus = [sk for sk in skus]
     for k in ALL_THE_SAME.keys():
         qty_count = 0
 
@@ -298,11 +298,11 @@ def resolve_all_the_same(skus):
             offer_remainder = len_str % min_qty
 
             min_sku =  min(sk_dict, key=sk_dict.get)
-            # min_sku_count = skus.count(min_sku)
             for x in range(offer_remainder):
-                min_sku_count = count_track_skus.count()
+                min_sku_count = count_track_skus.count(min_sku)
                 if min_sku_count > 0:
                     repl_str = f"{repl_str}{min_sku}"
+                    count_track_skus = count_track_skus.remoce(min_sku)
 
             print(min_sku, max_sku, ats_skus, min_qty, len_str)
 
