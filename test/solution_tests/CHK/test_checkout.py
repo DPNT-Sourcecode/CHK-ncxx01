@@ -81,5 +81,3 @@ class TestHello():
         # assert checkout_solution.checkout("SXYZNNNM") == 182
         assert checkout_solution.checkout("SXYYZ") == 182
 
-
-
