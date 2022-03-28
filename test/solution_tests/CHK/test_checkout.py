@@ -76,6 +76,10 @@ class TestHello():
         """Test checkout for buy 3 x get 1 y free, and y offers"""
         assert checkout_solution.checkout("NNNM") == 120
 
+    def test_mix_and_discount_offer_checkout_more_qty(self):
+        """Test checkout for buy 3 x get 1 y free, and y offers"""
+        assert checkout_solution.checkout("NNNM") == 120
+
 
 """
 Some requests have failed (2/40). Here are some of them:
