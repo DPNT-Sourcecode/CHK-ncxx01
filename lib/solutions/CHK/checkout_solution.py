@@ -345,7 +345,7 @@ def compute_price(list_items, price_dict):
                                             sk_count_track = sk_count_track - 1
 
                                     if sk_offers:
-                                        # hardcoding now as B only has 1 offer, 
+                                        # dealing with only 1 offer, 
                                         # will make it generic later, 
                                         # or place appropriate constraints
                                         sk_offer = sk_offers[0]
@@ -389,9 +389,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
-
-
-
-
-
