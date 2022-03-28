@@ -276,7 +276,8 @@ def resolve_all_the_same(skus):
                 qty_count += 1
 
         if qty_count >= ALL_THE_SAME[k]["min_quantity"]:
-            raise Exception
+            
+            # raise Exception
 
     # raise Exception
 
@@ -461,4 +462,3 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
-
