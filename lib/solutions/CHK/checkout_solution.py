@@ -169,7 +169,7 @@ def compute_price(list_items, price_dict):
                         elif eff_offer["deal_type"] == "self":
                             total_val += qty_available * price
                             discount = 0
-                            print(qty_available, offer_qty, total_val)
+                            print(total_val)
                             if qty_available > offer_qty:
                                 offer_multiple = qty_available // offer_qty
                                 free_factor = eff_offer["free_items"][0]["free_quantity"]
@@ -177,7 +177,9 @@ def compute_price(list_items, price_dict):
                                 for i in range(offer_multiple):
                                     if free_factor <= qty_available:
                                         discount += free_factor * price
+                                        print(discount)
                                         qty_available = qty_available - 1
+                                    print(discount, qty_available)
 
                                 # print(offer_multiple)
                                 # print(offer_remainder)
@@ -187,6 +189,7 @@ def compute_price(list_items, price_dict):
 
                             total_val = total_val - discount
                             qty_available = 0
+                            print("\n")
                         
                         elif eff_offer["deal_type"] == "mix":
                             offer_multiple = qty_available // offer_qty
@@ -245,7 +248,6 @@ def compute_price(list_items, price_dict):
                                             free_val = free_val - sk_offer_savings 
 
                 total_val += qty_available * price
-    print(total_val)
     total_val = total_val - free_val
     return total_val
 
