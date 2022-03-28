@@ -50,17 +50,14 @@ class TestHello():
 
     def test_mix_and_discount_offer_checkout(self):
         """Test checkout for buy 2 x get 1 y free, and y offers"""
-        sku_list = ["A", "A", "E", "E", "B", "B", "B"]
         # checking the value actually matches (not just what the function computes)
         assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
         assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
 
     def test_self_discount_offer_checkout(self):
-        """Test checkout for buy 2 x get 1 y free, and y offers"""
-        sku_list = ["A", "A", "E", "E", "B", "B", "B"]
-        # checking the value actually matches (not just what the function computes)
-        assert checkout_solution.checkout("AAAAAEEBAAABB") == 455
-        assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
+        """Test checkout for buy 2 get 1 free"""
+        assert checkout_solution.checkout("FFF") == 20
+    #     assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
 
 
 """
@@ -68,3 +65,4 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["AAAAAEEBAAABB"],"id":"CHK_R2_040"}, expected: 455, got: 470
  - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 695
 """
+
