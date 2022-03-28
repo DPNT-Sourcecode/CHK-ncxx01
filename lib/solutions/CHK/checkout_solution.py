@@ -172,7 +172,16 @@ PRICING_TABLE = {
                 }
             ]
         },
-    "S": {"price": 30},
+    "S": {
+            "price": 30,
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_type": "discount",
+                    "deal_price": 80
+                }
+            ]
+        },
     "T": {"price": 20},
     "U": {
             "price": 40,
@@ -346,8 +355,6 @@ def compute_price(list_items, price_dict):
 
                                     if sk_offers:
                                         # dealing with only 1 offer, 
-                                        # will make it generic later, 
-                                        # or place appropriate constraints
                                         sk_offer = sk_offers[0]
                                         sk_offer_qty = sk_offer["quantity"]
                                         sk_offer_price = sk_offer["deal_price"]
@@ -389,4 +396,5 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
