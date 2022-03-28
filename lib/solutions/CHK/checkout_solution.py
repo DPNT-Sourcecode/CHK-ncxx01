@@ -254,6 +254,12 @@ PRICING_TABLE = {
         }
 }
 
+ALL_THE_SAME {
+    ("S", "T", "X", "Y", "Z"): {
+        "min_quantity": 3,
+        "replacement": "X"
+    }
+}
 
 def effective_offer_list(actual_qty, offer_qty_list):
     """Return only the quantities that are applicable
@@ -429,6 +435,8 @@ def checkout(skus):
 
     :rtype: Int
     """
+    eff_skus = skus.strip()
+
     return compute_price(
-        [char for char in skus.strip()], 
+        [char for char in eff_skus], 
         PRICING_TABLE)
