@@ -137,9 +137,41 @@ PRICING_TABLE = {
             ]
         },
     "O": {"price": 10},
-    "P": {"price": 15}, #revisit
-    "Q": {"price": 15}, #revisit
-    "R": {"price": 15}, #revisit
+    "P": {
+            "price": 50,
+            "special_offers": [
+                {
+                    "quantity": 5,
+                    "deal_type": "discount",
+                    "deal_price": 200
+                }
+            ]
+        },
+    "Q": {
+            "price": 30,
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_type": "discount",
+                    "deal_price": 80
+                }
+            ]
+        },
+    "R": {
+            "price": 50,
+            "special_offers": [
+                {
+                    "quantity": 3,
+                    "deal_type": "mix",
+                    "free_items": [
+                        {
+                            "item": "Q",
+                            "free_quantity": 1
+                        }
+                    ]
+                }
+            ]
+        },
     "S": {"price": 30},
     "T": {"price": 20},
     "U": {"price": 15}, #revisit
@@ -311,7 +343,8 @@ def compute_price(list_items, price_dict):
                                                 remaining_disc_price = remaining_offer_multiple * sk_offer_price
                                                 free_val += remaining_sk_price - remaining_disc_price
 
-                                            free_val = free_val - sk_offer_savings 
+                                            free_val = free_val - sk_offer_savings
+                                    
 
                 total_val += qty_available * price
     total_val = total_val - free_val
@@ -330,5 +363,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
