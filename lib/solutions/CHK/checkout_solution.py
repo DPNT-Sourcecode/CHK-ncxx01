@@ -293,8 +293,7 @@ def resolve_all_the_same(skus):
             # ats_skus = "".join([sk for sk in sk_dict.keys()])
             for sk in sk_dict.keys():
                 ats_skus = f"{ats_skus}{sk}"
-                eff_skus.replace(sk, "")
-            
+                eff_skus = eff_skus.replace(sk, "")
             
             print(ats_skus)
             print(eff_skus)
@@ -319,9 +318,11 @@ def resolve_all_the_same(skus):
                     del sk_dict[min_sku]
 
             print(min_sku, max_sku, ats_skus, min_qty, len_str)
-
             print(offer_multiple, offer_remainder, repl_str)
-            raise Exception
+            if repl_str:
+                eff_skus = f"{eff_skus}{repl_str}"
+            print(eff_skus)
+            # raise Exception
 
     return eff_skus
 
@@ -506,5 +507,6 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
