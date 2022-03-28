@@ -172,8 +172,11 @@ def compute_price(list_items, price_dict):
                             print(qty_available, offer_qty, total_val)
                             if qty_available > offer_qty:
                                 offer_multiple = qty_available // offer_qty
+                                free_factor = eff_offer["free_items"][0]["free_quantity"]
                                 print(offer_multiple)
-                                print(eff_offer)
+                                # print(eff_offer)
+                                print(free_factor)
+                                print(offer_qty * offer_multiple)
 
                                 raise Exception
                             # else:
@@ -253,6 +256,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
