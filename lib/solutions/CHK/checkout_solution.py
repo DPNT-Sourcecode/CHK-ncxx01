@@ -90,7 +90,27 @@ PRICING_TABLE = {
                     ]
                 }
             ]
-        }
+        },
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "D": {"price": 15},
+    "S": {"price": 30},
+    "T": {"price": 20},
+    "U": {"price": 15}, #revisit
+    "V": {"price": 15}, #revisit
+    "W": {"price": 20},
+    "X": {"price": 90},
+    "Y": {"price": 10},
+    "Z": {"price": 50},
 }
 
 
@@ -273,6 +293,7 @@ def checkout(skus):
     return compute_price(
         [char for char in skus.strip()], 
         PRICING_TABLE)
+
 
 
 
