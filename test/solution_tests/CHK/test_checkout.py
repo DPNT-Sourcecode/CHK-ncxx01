@@ -74,7 +74,7 @@ class TestHello():
 
     def test_mix_and_discount_offer_checkout_more_qty(self):
         """Test checkout for buy 3 x get 1 y free, and y offers"""
-        assert checkout_solution.checkout("NNN") == 120
+        assert checkout_solution.checkout("NNNM") == 120
 
 
 """
@@ -88,3 +88,4 @@ Some requests have failed (2/40). Here are some of them:
  - {"method":"checkout","params":["BBB"],"id":"CHK_R4_103"}, expected: 75, got: null
  - {"method":"checkout","params":["BBBB"],"id":"CHK_R4_104"}, expected: 90, got: null
  """
+
