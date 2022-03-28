@@ -92,7 +92,21 @@ PRICING_TABLE = {
             ]
         },
     "G": {"price": 20},
-    "H": {"price": 15}, #revisit
+    "H": {
+            "price": 10,
+            "special_offers": [
+                {
+                    "quantity": 5,
+                    "deal_type": "discount",
+                    "deal_price": 45
+                },
+                {
+                    "quantity": 10,
+                    "deal_type": "discount",
+                    "deal_price": 80
+                }
+            ]
+        }, 
     "I": {"price": 35},
     "J": {"price": 60},
     "K": {"price": 15}, #revisit
