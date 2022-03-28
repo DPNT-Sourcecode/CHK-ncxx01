@@ -271,12 +271,15 @@ def resolve_all_the_same(skus):
     """
     for k in ALL_THE_SAME.keys():
         qty_count = 0
+
+        sk_dict = {}
+
         for sku in skus:
             if sku in k:
                 qty_count += 1
 
         if qty_count >= ALL_THE_SAME[k]["min_quantity"]:
-            
+
             # raise Exception
 
     # raise Exception
